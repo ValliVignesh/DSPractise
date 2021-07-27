@@ -37,6 +37,7 @@ public class GroupTransactions {
 		}
 		
 		Collections.sort(output);
+		System.out.println(output);
 		return output;
 	}
 	
