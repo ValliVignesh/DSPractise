@@ -159,6 +159,7 @@ public class MaxDiffLong {
 					minQueue.removeFirst();
 				if (maxQueue.peekFirst() == n[left++])
 					maxQueue.removeFirst();
+				
 			}
 			longest = Math.max(longest, right - left + 1);
 			right++;

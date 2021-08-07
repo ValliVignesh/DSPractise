@@ -35,6 +35,7 @@ public class MergeLinkedLists {
 			if(node1.value < node2.value) {
 				current.next = node1;
 				node1 = node1.next;
+				
 			} else {
 				current.next = node2;
 				node2 = node2.next;

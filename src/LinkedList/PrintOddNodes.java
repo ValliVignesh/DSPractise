@@ -48,6 +48,20 @@ public class PrintOddNodes {
 
 	}
 
+	public int getDecimalValue(Node node) {
+		double num = 0;
+		if (node.next == null)
+			return node.value;
+		while (node != null) {
+			int digit = node.value;
+			num = 2 * num + digit;
+
+			node = node.next;
+		}
+
+		return (int) num;
+	}
+
 	@Test
 	public void test1() {
 

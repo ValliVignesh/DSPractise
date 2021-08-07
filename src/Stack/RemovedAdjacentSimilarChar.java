@@ -68,7 +68,7 @@ public class RemovedAdjacentSimilarChar {
 		while (!stack.isEmpty()) {
 			sb.append(stack.pop());
 		}
-		return sb.toString();
+ 		return sb.toString();
 
 	}
 
