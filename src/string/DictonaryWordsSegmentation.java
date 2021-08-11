@@ -55,7 +55,7 @@ public class DictonaryWordsSegmentation {
 		// StringBuilder sb = new StringBuilder(str);
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
-		for (int i = 0; i < str.length(); i++) {
+		for (int i = 0; i < str.length(); i++) { //O(n)
 			map.put(str.charAt(i), map.getOrDefault(str.charAt(i), 0) + 1);
 		}
 

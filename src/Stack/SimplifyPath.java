@@ -85,18 +85,27 @@ public class SimplifyPath {
 
 	private String simplfyPath(String str) {
 		// TODO Auto-generated method stub
-		char[] ch = str.toCharArray();
-		Stack<Character> stack = new Stack<Character>();
+		String[] s = str.split("/");
 
-		for (int i = 0; i < ch.length; i++) {
-			if (stack.isEmpty()) {
-				stack.push(ch[i]);
-			} else if (stack.peek().equals('/') && stack.peek().equals('/')) {
+		Stack<String> stack = new Stack<String>();
+		for (String st : s) {
+			if (st.isEmpty() || st.equals(".")) {
 				continue;
-			}else
-				stack.push(ch[i]);
+			} else if (st.equals("..")) {
+				if (!stack.isEmpty())
+					stack.pop();
+			} else
+				stack.push(st);
 		}
-		return null;
+		StringBuffer sb = new StringBuffer();
+		while (!stack.isEmpty()) {
+			sb.insert(0, stack.pop());
+			sb.insert(0, "/");
+		}
+		if (sb.length() == 0)
+			sb.insert(0, "/");
+		System.out.println(sb);
+		return sb.toString();
 	}
 
 }

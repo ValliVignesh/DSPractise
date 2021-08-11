@@ -20,8 +20,8 @@ public class ClosestSum {
 	@Test
 	public void test1() {
 		int n[] = { 12, 15, 20 };
-		int k = 18;
-		Assert.assertEquals(true, Arrays.equals(new int[] { -1, -1 }, findClosestNumber(n, k)));
+		int k = 36;
+		Assert.assertEquals(true, Arrays.equals(new int[] { 1, 2 }, findClosestNumber(n, k)));
 
 	}
 	@Test
@@ -33,8 +33,8 @@ public class ClosestSum {
 	}@Test
 	public void test3() {
 		int n[] = { 12,33,17};
-		int k = 30;
-		Assert.assertEquals(true, Arrays.equals(new int[] { 0, 2 }, findClosestNumber(n, k)));
+		int k = 46;
+		Assert.assertEquals(true, Arrays.equals(new int[] { 0, 1 }, findClosestNumber(n, k)));
 
 	}
 
@@ -54,9 +54,11 @@ public class ClosestSum {
 			map.put(n[i], n[i]);
 		}
 		for (int i = 0; i < map.size()-1; i++) {
-			if (map.get(n[i]) + map.get(n[i + 1]) <= k) {
-				index[0] = map.get(n[i]);
-				index[1] = map.get(n[i + 1]);
+			int min=0;			
+			min=Math.max(min, map.get(n[i]) + map.get(n[i + 1]));
+			if (min<= k) {
+				index[0] = i;
+				index[1] = i + 1;
 				System.out.println(Arrays.toString(index));
 				return index;
 			}
