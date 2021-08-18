@@ -28,6 +28,7 @@ public class ReverseLinkedList {
 	// reverse the node
 	public Node reverseNode(Node node) {
 		Node curr = node, prev = null, next = null;
+		
 		while(curr != null) {
 			next = curr.next;
 			curr.next = prev;
