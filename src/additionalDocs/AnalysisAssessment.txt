@@ -1,0 +1,68 @@
+Assessment_4
+Solve as a team
+
+each one of you need to write down:
+
+Sovle3:
+1.did u understood the problem  - Yes
+2.did u think though pseudo code - Brute force
+3.what did u do right - able to derive solution faster
+4.Did u ever solve using Brute Force - Yes
+5.what did u do wrong - not able to optimize
+
+How much time you took to solve it
+analysis in excel - 15 to 20 mins
+
+
+Sovle2:
+1.did u understood the problem  - Yes
+2.did u think though pseudo code - Brute force
+3.what did u do right - No 
+4.Did u ever solve using Brute Force - Yes
+5.what did u do wrong - not able to optimize - Got Time Limit Exceeded
+
+How much time you took to solve it
+analysis in excel - 30 mins
+
+Sovle2:
+1.did u understood the problem  - Yes
+2.did u think though pseudo code - Brute force
+3.what did u do right - No 
+4.Did u ever solve using Brute Force - Yes
+5.what did u do wrong - not able to optimize - Got Time Limit Exceeded
+
+How much time you took to solve it
+analysis in excel - 30 mins
+
+
+
+
+
+Sovle1:
+1.did u understood the problem  - After long read only understood
+2.did u think though pseudo code - No
+3.what did u do right - 
+4.Did u ever solve using Brute Force - Partially
+5.what did u do wrong -  have not checkded min length for all the numbers
+How much time you took to solve it
+analysis in excel - 30 mins
+
+
+9 to 10 pm
+8 to 9 am tomorrow
+
+Team 3:
+
+Problem 1:
+1.Did Not understood question
+2.Not able to derive pseudocode as question is clear
+3.with partial understanding we are able to clear few test cases but for hidden test cases code failed
+4.did not do Implementaion via list , converted to Array and proceeded 
+
+Problem 2:
+Undertstood problem 
+but did not derive proper pseudo code so test cases failed
+
+Problem 3:
+Did not derive the pesudo code correctly
+So some test cases failed
