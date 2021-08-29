@@ -18,8 +18,9 @@ public class KthSubArrayDivisible {
 		nums.add(11);
 		nums.add(9);
 		nums.add(5);
-		System.out.println(kSub(k,nums));
+		System.out.println(kSub(k, nums));
 
+		//System.out.println(countSubArray(k, nums));
 	}
 
 	public long kSub(int k, List<Integer> nums) {
@@ -54,5 +55,25 @@ public class KthSubArrayDivisible {
 		}
 		return output;
 
+	}
+
+	private int countSubArray(int[] arr, int k) {
+		int j = 1;
+		int output = 0;
+		int count = 0;
+		while (j < arr.length) {
+			if (arr[j] > arr[j - 1]) {
+				count++;
+			} else {
+				if (count + 1 >= k) {
+					output += count - k + 2;
+					count = 0;
+				}
+			}
+			j++;
+		}
+		if (count + 1 >= k)
+			output += count - k + 2;
+		return output;
 	}
 }

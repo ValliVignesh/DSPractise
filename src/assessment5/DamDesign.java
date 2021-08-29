@@ -42,7 +42,7 @@ public class DamDesign {
 		wallHeights.add(6);
 		wallHeights.add(8);
 		wallHeights.add(11);
-		Assert.assertEquals(10, findMaxHeight(wallPositions, wallHeights));
+		Assert.assertEquals(10, findMudWall(wallPositions, wallHeights));
 
 	}
 
@@ -55,7 +55,7 @@ public class DamDesign {
 		wallHeights.add(1);
 		wallHeights.add(5);
 
-		Assert.assertEquals(7, findMaxHeight(wallPositions, wallHeights));
+		Assert.assertEquals(7, findMudWall(wallPositions, wallHeights));
 
 	}
 
@@ -82,6 +82,26 @@ public class DamDesign {
 		return maxHeight;
 		// TODO Auto-generated method stub
 
+	}
+//Need to check
+	private int findMudWall(List<Integer> wallPositions, List<Integer> wallHeights) {
+		int n = wallPositions.size();
+		int maximumheight = 0;
+		for (int i = 0; i < n - 1; i++) {
+			int diff = Math.abs(wallHeights.get(i + 1) - wallHeights.get(i));
+			int gap = wallPositions.get(i + 1) - wallPositions.get(i) - 1;
+			int max = 0;
+			if (gap > diff) {
+				int low = Math.max(wallHeights.get(i + 1), wallHeights.get(i) + 1);
+				int length = gap - diff - 1;
+				max = low + length / 2;
+			} else {
+				max = Math.min(wallHeights.get(i + 1), wallHeights.get(i)) + gap;
+			}
+			maximumheight = Math.max(maximumheight, max);
+		}
+
+		return maximumheight;
 	}
 
 }
