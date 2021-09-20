@@ -112,13 +112,13 @@ public class RemoveDuplicateValues {
 	@Test
 	public void test1() {
 		Node head = addNode(10);
-		// head.next = addNode(11);
-		// head.next.next = addNode(12);
-		// head.next.next.next = addNode(11);
+		 head.next = addNode(11);
+		 head.next.next = addNode(12);
+		 head.next.next.next = addNode(11);
 
 		System.out.println("Linked List before removing duplicates : \n ");
 		printAllNodes(head);
-		findRemoveDupRecursion(head, 10);
+		findRemoveDup(head, 11);
 		System.out.println("");
 		System.out.println("Linked List after removing duplicates : \n ");
 		printAllNodes(head);

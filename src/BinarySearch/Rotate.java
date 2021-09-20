@@ -29,7 +29,20 @@ public class Rotate {
 		int target = 0;
 		Assert.assertEquals(4, searchNumberAfterRotate(n, target));
 	}
-
+	@Test
+	public void test2() {
+		int n[] = { 4, 5, 6, 7, 0, 1, 2 };
+		int target = 3;
+		Assert.assertEquals(-1, searchNumberAfterRotate(n, target));
+	}
+	@Test
+	public void test3() {
+		int n[] = { 1};
+		int target = 0;
+		Assert.assertEquals(-1, searchNumberAfterRotate(n, target));
+	}
+	// Time complexity -O(log n)
+	//Space Complexity- O(1)
 	private int searchNumberAfterRotate(int[] n, int target) {
 		// TODO Auto-generated method stub
 		int low = 0, high = n.length - 1; //4,5,6,7,0,1,2

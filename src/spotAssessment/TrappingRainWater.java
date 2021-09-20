@@ -45,37 +45,27 @@ public class TrappingRainWater {
 
 	private int findTrappingWater(int[] n) {
 		// TODO Auto-generated method stub
-		int count = 0;
-
-		int left = 0;
-		int right = 1;
-		int length;
-		if (n[n.length] <= n[n.length - 1])
-			length = n.length - 1;
-		else
-			length = n.length;
-
-		while (left < length) {
-			boolean isRange = false;
-			if (n[left] <= n[left + 1]) {
-				left++;
-				right++;
-			} else {
-				while (right - left >= 2 && !isRange) {
-
-					if (n[left] == n[right]) {
-
-					} else if (n[left] > n[right]) {
-
-						right++;
-					} else {
-
-					}
-				}
-
-			}
-
-		}
-		return count;
+		 int l=0, r=n.length-1, rightmax=0, leftmax=0;
+	        int water = 0;
+	        while(l<=r)
+	        {
+	            if(leftmax<=rightmax)
+	            {
+	               if(n[l]>=leftmax)
+	                   leftmax=n[l];
+	                else
+	                    water+=(leftmax - n[l]);
+	                l++;
+	            }
+	            else
+	            {
+	                if(n[r]>=rightmax)
+	                   rightmax=n[r];
+	                else
+	                    water+=(rightmax-n[r]);
+	                r--;
+	            }
+	        }
+	        return water;
 	}
 }

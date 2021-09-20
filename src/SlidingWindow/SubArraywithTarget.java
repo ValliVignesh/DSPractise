@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 
-public class SubArraywithTarger {
+public class SubArraywithTarget {
 	/**
 	 * Given an int array [1,4,20,3,10,5] and target sum 33. If target subarray sum
 	 * is found, return true else false Time : 20 Minutes - Write another 2 test

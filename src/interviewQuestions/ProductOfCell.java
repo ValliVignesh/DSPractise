@@ -37,6 +37,12 @@ public class ProductOfCell {
 		Assert.assertTrue(Arrays.equals(new int[] { 2, 1 }, findProd(n)));
 	}
 
+	@Test
+	public void test5() {
+		int n[] = { 1, 2, 3, 4 }; // output - {2,1}
+		Assert.assertTrue(Arrays.equals(new int[] { 24, 12, 8, 6 }, findProd(n)));
+	}
+
 	/**
 	 * While right==left break
 	 * 
@@ -51,22 +57,23 @@ public class ProductOfCell {
 	 */
 
 	private int[] findProd(int[] n) {
-		//{ 2, 3, 4, 5 };
+		// { 2, 3, 4, 5 };
 		int nums = n.length;
-        int ans[] = new int[nums];
-        Arrays.fill(ans, 1);
-        int curr = 1;
-        for(int i = 0; i < nums; i++) {
-            ans[i] *= curr;
-            curr *= n[i];
-        }
-        curr = 1;
-        for(int i = nums- 1; i >= 0; i--) {
-            ans[i] *= curr;
-            curr *= n[i];
-        }
-        System.out.println(Arrays.toString(ans));
-        return ans;
+		int ans[] = new int[nums];
+		Arrays.fill(ans, 1);
+		int curr = 1;
+		for (int i = 0; i < nums; i++) {
+			ans[i] *= curr;
+			curr *= n[i];
+		}
+		curr = 1;
+		for (int i = nums - 1; i >= 0; i--) {
+			ans[i] *= curr;
+			curr *= n[i];
+		}
+		System.out.println(Arrays.toString(ans));
+		return ans;
 
 	}
+
 }
