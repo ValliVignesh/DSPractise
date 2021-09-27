@@ -22,7 +22,7 @@ public class RMGtoCMK {
 		String line;
 		while ((line = in.readLine()) != null) {
 			System.out.println(line);
-			System.out.println(Arrays.toString(coloChng(line)));
+			System.out.println(Arrays.toString(coloChng1(line)));
 			// System.out.println("%d,%d,%d,%d",output[0],output[1],output[2],output[3]);
 		}
 
@@ -49,5 +49,31 @@ public class RMGtoCMK {
 		int y = (int) ((1 - bValue - k)) / div;
 		return new int[] { c/255, m/255, y/255, (int) k/255 }; // the output was not as expected need to include the conversion from normal int to 8 bit int
 	}
+	private static int[] coloChng1(String line) {
+		String[] value = line.split(",");
+		int r = Integer.parseInt(value[0]);
+		int g = Integer.parseInt(value[1]);
+		int b = Integer.parseInt(value[2]);
 
+		double rValue = r / 255;
+		double gValue = g / 255;
+		double bValue = b / 255;
+
+		double k = 1 - Math.max(Math.max(rValue, gValue), bValue);
+		if (k == 1) {
+			return new int[] { 0, 0, 0, 255 };
+		}
+
+		int div = 1 - (int) k;
+		int c = (int) ((1 - rValue - k)) / div;
+		int m = (int) ((1 - gValue - k)) / div;
+		int y = (int) ((1 - bValue - k)) / div;
+		
+		r=(int)(255*(1-c)*(1-k));
+		g=(int)(255*(1-m)*(1-k));
+		b=(int)(255*(1-y)*(1-k));
+		
+		return new int[] { 255-c/255, 255-m/255, 255-y/255, 255-(int) k/255 }; // the output was not as expected need to include the conversion from normal int to 8 bit int
+	}
+	
 }

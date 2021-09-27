@@ -28,6 +28,8 @@ public class DamDesign {
 	 * built, return 0.
 	 * 
 	 * Example wallPositions = [1, 2, 4, 7] wallHeights = [4, 6, 8, 11]
+	 *4,5,6,9,10,11,12,13,14
+	 *20,22,11,14,14,21,19,14,23
 	 */
 	@Test
 	public void test1() {
@@ -42,7 +44,36 @@ public class DamDesign {
 		wallHeights.add(6);
 		wallHeights.add(8);
 		wallHeights.add(11);
-		Assert.assertEquals(10, findMudWall(wallPositions, wallHeights));
+		Assert.assertEquals(10, findMaxHeight_Haja(wallPositions, wallHeights));
+
+	}
+	//4,5,6,9,10,11,12,13,14
+	 //20,22,11,14,14,21,19,14,23
+	@Test
+	public void test3() {
+		List<Integer> wallPositions = new ArrayList<Integer>();
+		List<Integer> wallHeights = new ArrayList<Integer>();
+		wallPositions.add(4);
+		wallPositions.add(5);
+		wallPositions.add(6);
+		wallPositions.add(6);
+		wallPositions.add(9);
+		wallPositions.add(10);
+		wallPositions.add(11);
+		wallPositions.add(12);
+		wallPositions.add(13);
+		wallPositions.add(14);
+
+		wallHeights.add(20);
+		wallHeights.add(22);
+		wallHeights.add(11);
+		wallHeights.add(14);
+		wallHeights.add(14);
+		wallHeights.add(21);
+		wallHeights.add(19);
+		wallHeights.add(14);
+		wallHeights.add(23);
+		Assert.assertEquals(10, findMaxHeight_Haja(wallPositions, wallHeights));
 
 	}
 
@@ -55,7 +86,7 @@ public class DamDesign {
 		wallHeights.add(1);
 		wallHeights.add(5);
 
-		Assert.assertEquals(7, findMudWall(wallPositions, wallHeights));
+		Assert.assertEquals(7, findMaxHeight_Haja(wallPositions, wallHeights));
 
 	}
 
@@ -83,6 +114,7 @@ public class DamDesign {
 		// TODO Auto-generated method stub
 
 	}
+
 //Need to check
 	private int findMudWall(List<Integer> wallPositions, List<Integer> wallHeights) {
 		int n = wallPositions.size();
@@ -104,4 +136,23 @@ public class DamDesign {
 		return maximumheight;
 	}
 
+	private int findMaxHeight_Haja(List<Integer> wallPositions, List<Integer> wallHeights) {
+		int n = wallPositions.size();
+		int result = 0;
+		for (int i = 0; i < n - 1; i++) {
+			int hDiff = Math.abs((wallHeights.get(i + 1) - wallHeights.get(i)));
+			int gapLen = wallPositions.get(i + 1) - wallPositions.get(i) - 1;
+			int localMax = 0;
+			if (gapLen > hDiff) {
+				int low = Math.max(wallHeights.get(i + 1), wallHeights.get(i)) + 1;
+				int remGap = gapLen - hDiff - 1;
+				localMax = low + remGap / 2;
+			} else {
+				localMax = Math.min(wallHeights.get(i + 1), wallHeights.get(i)) + gapLen;
+			}
+			result = Math.max(result, localMax);
+		}
+		return result;
+
+	}
 }
