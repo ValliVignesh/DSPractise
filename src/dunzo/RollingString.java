@@ -40,6 +40,7 @@ public class RollingString {
 							int temp = (int) s.charAt(k) + 1;
 							result += String.valueOf(temp);
 							System.out.println(result);
+							
 						}
 					}
 				}
@@ -49,35 +50,35 @@ public class RollingString {
 		return result;
 	}
 
-	private String rollString_Sindhu(String s, List<String> operations) {
-		
-		StringBuffer rollString=new StringBuffer(s); 
-		for (int i = 0; i < operations.size(); i++) { 
-			String str[]=operations.get(i).split("\\s+");   
-			for (int j = Integer.parseInt(str[0]); j <=Integer.parseInt(str[1]); j++) {     
-				if(str[2].equalsIgnoreCase("L")){               
-					char temp=rollString.charAt(j);     
-					if(temp=='a'){   
-						temp='z';                     
-						}
-					else{    
-							temp--;                     } 
-					
-					
-					rollString.setCharAt(j, temp);                 }
-				else{  
-						char temp=rollString.charAt(j);                     
-						if(temp=='z'){
-							
-							
-		}
-	          temp='a';  
-	          }
-				else{  
-	        	  temp++;  
-	        	  }
-	          rollString.setCharAt(j, temp);  
-	          }             }             //    }             System.out.println(rollString.toString());             return rollString.toString();
-
-	}
+//	private String rollString_Sindhu(String s, List<String> operations) {
+//		
+//		StringBuffer rollString=new StringBuffer(s); 
+//		for (int i = 0; i < operations.size(); i++) { 
+//			String str[]=operations.get(i).split("\\s+");   
+//			for (int j = Integer.parseInt(str[0]); j <=Integer.parseInt(str[1]); j++) {     
+//				if(str[2].equalsIgnoreCase("L")){               
+//					char temp=rollString.charAt(j);     
+//					if(temp=='a'){   
+//						temp='z';                     
+//						}
+//					else{    
+//							temp--;                     } 
+//					
+//					
+//					rollString.setCharAt(j, temp);                 }
+//				else{  
+//						char temp=rollString.charAt(j);                     
+//						if(temp=='z'){
+//							
+//							
+//		}
+//	          temp='a';  
+//	          }
+//				else{  
+//	        	  temp++;  
+//	        	  }
+//	          rollString.setCharAt(j, temp);  
+//	          }             }             //    }             System.out.println(rollString.toString());             return rollString.toString();
+//
+//	}
 }

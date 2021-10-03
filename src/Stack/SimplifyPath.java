@@ -28,7 +28,7 @@ public class SimplifyPath {
 	 * 
 	 * Example 2:
 	 * 
-	 * Input: path = "/../" Output: "/" Explanation: Going one level up from the
+	 * Input: path = "/../"* Output: "/" Explanation: Going one level up from the
 	 * root directory is a no-op, as the root level is the highest level you can go.
 	 * Example 3:
 	 * 
@@ -62,7 +62,7 @@ public class SimplifyPath {
 	@Test
 	public void test1() {
 		String str = "/home/";
-		Assert.assertEquals("/home", simplfyPath(str));
+		Assert.assertEquals("/home", simplfyPathSB(str));
 	}
 
 	@Test
@@ -74,13 +74,13 @@ public class SimplifyPath {
 	@Test
 	public void test3() {
 		String str = "/home//foo/";
-		Assert.assertEquals("/home/foo", simplfyPath(str));
+		Assert.assertEquals("/home/foo", simplfyPathSB(str));
 	}
 
 	@Test
 	public void test4() {
 		String str = "/a/./b/../../c/";
-		Assert.assertEquals("/c", simplfyPath(str));
+		Assert.assertEquals("/c", simplfyPathSB(str));
 	}
 
 	private String simplfyPath(String str) {
@@ -94,12 +94,39 @@ public class SimplifyPath {
 			} else if (st.equals("..")) {
 				if (!stack.isEmpty())
 					stack.pop();
+				
 			} else
 				stack.push(st);
 		}
 		StringBuffer sb = new StringBuffer();
 		while (!stack.isEmpty()) {
 			sb.insert(0, stack.pop());
+			sb.insert(0, "/");
+		}
+		if (sb.length() == 0)
+			sb.insert(0, "/");
+		System.out.println(sb);
+		return sb.toString();
+	}
+
+	private String simplfyPathSB(String str) {
+		// TODO Auto-generated method stub
+		String[] s = str.split("/");
+
+	StringBuilder result = new StringBuilder();
+		for (String st : s) {
+			if (result.equals(null) || result.equals(".")) {
+				continue;
+			} else if (st.equals("..")) {
+				if (!result.isEmpty())
+					result.deleteCharAt(result.length()-1);
+			} else
+				result.append(st);
+		}
+		StringBuffer sb = new StringBuffer();
+		while (result.length()>0) {
+			sb.insert(0, result);
+			result.deleteCharAt(result.length());
 			sb.insert(0, "/");
 		}
 		if (sb.length() == 0)

@@ -76,6 +76,7 @@ public class MaxDiffLong {
 
 			if (n[windowEnd] - n[windowStart] <= k) {
 				resultQueue.offer(n[windowEnd] - n[windowStart]);
+				
 			}
 			windowEnd++;
 		}

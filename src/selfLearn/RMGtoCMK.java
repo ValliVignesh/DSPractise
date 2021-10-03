@@ -73,7 +73,7 @@ public class RMGtoCMK {
 		g=(int)(255*(1-m)*(1-k));
 		b=(int)(255*(1-y)*(1-k));
 		
-		return new int[] { 255-c/255, 255-m/255, 255-y/255, 255-(int) k/255 }; // the output was not as expected need to include the conversion from normal int to 8 bit int
+		return new int[] { 255-c/255, 255-m/255,255-y/255, 255-(int) k/255 }; // the output was not as expected need to include the conversion from normal int to 8 bit int
 	}
 	
 }
